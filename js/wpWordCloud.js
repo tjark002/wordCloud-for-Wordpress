@@ -21,11 +21,7 @@
 
 		}
 
-		// add canvas
 		$(this).append('<div class="word-cloud-controller"></div>');
-		$(this).append('<canvas class="word-cloud" style="width: 100%" height="'+wpWordCloudSettings.canvasHeight+'" width="'+wpWordCloudSettings.canvasWidth+'" id="word-cloud-'+wpWordCloudSettings.id+'"></canvas>');
-
-		wpwc(wpWordCloudSettings, "Added canvas");
 
 		// add black list container
 		// contains words clicked by user
@@ -39,9 +35,14 @@
 		}
 		if (wpWordCloudSettings.enableCustomBlackList == 1 || wpWordCloudSettings.enableBlackList == 1) {
 
-			$(this).append('<input checked type="checkbox" class="activate-black-list" id="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'" name="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">');
+			$(this).append('<label for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'"><input checked type="checkbox" class="activate-black-list" id="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'" name="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Füllwörter ausschließen</label>');
 
 		}
+
+		// add canvas
+		$(this).append('<canvas class="word-cloud" style="width: 100%" height="'+wpWordCloudSettings.canvasHeight+'" width="'+wpWordCloudSettings.canvasWidth+'" id="word-cloud-'+wpWordCloudSettings.id+'"></canvas>');
+
+		wpwc(wpWordCloudSettings, "Added canvas");
 
 		// add hover container
 		// hiden on init
@@ -70,9 +71,12 @@
 
 		if (wpWordCloudSettings.enableFrontendEdit == 1 || wpWordCloudSettings.enableOcr == 1) {
 
-			$(this).find('.word-cloud-controller').prepend('<button class="render-word-cloud" id="render-word-cloud-'+wpWordCloudSettings.id+'">Erstellen</button>');
+			// Auswahl Text / Datei hochladen
+			$(this).find('.word-cloud-controller').prepend('<form style="margin: 20px 0;"><input type="radio" id="cloud_input_text" name="cloud_input" value="text" checked=""><label for="cloud_input_text"> Text</label><input type="radio" id="cloud_input_file" name="cloud_input" value="file"><label for="cloud_input_file"> Datei hochladen</label></form>');
 
-			$(this).prepend('<textarea class="word-cloud-text" id="word-cloud-text-'+wpWordCloudSettings.id+'"></textarea>');
+			$(this).find('.word-cloud-controller').append('<button class="render-word-cloud" id="render-word-cloud-'+wpWordCloudSettings.id+'">Erstellen</button>');
+
+			$(this).prepend('<textarea class="word-cloud-text" id="word-cloud-text-'+wpWordCloudSettings.id+'" placeholder="Gib hier einen Text ein..."></textarea>');
 
 			$('#word-cloud-text-'+wpWordCloudSettings.id).text(wpWordCloudSettings.data);
 
@@ -88,6 +92,22 @@
 		WordCloud($('#word-cloud-' + wpWordCloudSettings.id)[0], wpWordCloudSettings);
 
 	});
+
+	// change between text and file upload
+	$('[name="cloud_input"]').change(function() {
+		var theVal = $(this).val();
+		 if (theVal == "file") {
+		 	$('input[type="file"]').show();
+		 	$(".word-cloud-text-from-image-progress-bar-container").show();
+		 	$(".word-cloud-text").hide();
+		 	$(".word-cloud-text").val('');
+		 } else if (theVal == "text") {
+		 	$('input[type="file"]').hide();
+		 	$(".word-cloud-text-from-image-progress-bar-container").hide();
+		 	$(".word-cloud-text").show();
+		 }
+	});
+
 
 	$('.activate-black-list').click(function() {
 
@@ -120,6 +140,8 @@
 	})
 
 	$('.render-word-cloud').click(function() {
+
+		$("canvas.word-cloud").show();
 
 		var wpWordCloudSettings = getWordCloudSettings($(this).parent().parent()[0]);
 
