@@ -5,11 +5,20 @@
 
 .black-list-item:hover {
     cursor: pointer;
+    background-color: #FF0000;
 
 }
 
-.black-list-item:last-of-type {
-    padding-right: 0;
+.black-list-item {
+    display: inline-block;
+    background-color: #333333;
+    color: #fff;
+    padding: 4px 6px !important;
+    font-size: .9rem;
+    margin: 3px;
+    line-height: 1;
+    transition: 0.15s all ease;
+    border-radius: 3px;
 }
 
 .black-list-word-removal {
@@ -211,10 +220,6 @@
     margin: 30px 0;
 }
 
-canvas.word-cloud {
-    display: none;
-}
-
 .word-cloud-controller input[type=file],
 .word-cloud-text-from-image-progress-bar-container {
     display: none;
@@ -239,4 +244,18 @@ canvas.word-cloud {
 .word-cloud-container input[type=radio]:checked + label { 
    background-image: none;
    background-color:#00456f;
+}
+.kits_orientierung_wrapper {
+    display: none;
+}
+.kits_orientierung {
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    font-weight: bold;
+}
+.kits_orientierung svg {
+    height: 1.5em;
+    width: auto;
+    margin-right: 10px;
 }

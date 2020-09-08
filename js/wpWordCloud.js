@@ -30,12 +30,12 @@
 			wpwc(wpWordCloudSettings, "Added black list container");
 
 			$(this).append('<p id="word-cloud-black-list-'+wpWordCloudSettings.id+'"></p>');
-			$(this).append('<label for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Ignore-Liste anwenden</label>');
+			//$(this).append('<label for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Ignore-Liste anwenden</label>');
 			
 		}
 		if (wpWordCloudSettings.enableCustomBlackList == 1 || wpWordCloudSettings.enableBlackList == 1) {
 
-			$(this).append('<label for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'"><input checked type="checkbox" class="activate-black-list" id="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'" name="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Füllwörter ausschließen</label>');
+			$(this).append('<label for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'"><input checked type="checkbox" class="activate-black-list" id="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'" name="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Nur Adjektive, Verben und Nomen anzeigen</label>');
 
 		}
 
@@ -72,8 +72,8 @@
 		if (wpWordCloudSettings.enableFrontendEdit == 1 || wpWordCloudSettings.enableOcr == 1) {
 
 			// Auswahl Text / Datei hochladen
-			$(this).find('.word-cloud-controller').prepend('<form style="margin: 20px 0;"><input type="radio" id="cloud_input_text" name="cloud_input" value="text" checked=""><label for="cloud_input_text"> Text</label><input type="radio" id="cloud_input_file" name="cloud_input" value="file"><label for="cloud_input_file"> Datei hochladen</label></form>');
-
+			$(this).find('.word-cloud-controller').prepend('<div class="kits_orientierung_wrapper"><div class="kits_orientierung"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="103px" height="78px" viewBox="0 0 103 78" enable-background="new 0 0 103 78" xml:space="preserve"><path fill="#00456F" d="M92.409,1.5H10.591C1.5,1.5,1.5,10.591,1.5,10.591v56.818c0,0,0,9.091,9.091,9.091h81.818c9.091,0,9.091-9.091,9.091-9.091V10.591C101.5,10.591,101.5,1.5,92.409,1.5z M88.5,66.686c0,0,0,4.814-4.556,4.814H11.056C6.5,71.5,6.5,66.686,6.5,66.686V11.315c0,0,0-4.815,4.556-4.815h72.889c4.556,0,4.556,4.815,4.556,4.815V66.686z M94.818,42.324c-1.883,0-3.409-1.531-3.409-3.418c0-1.888,1.526-3.418,3.409-3.418s3.408,1.53,3.408,3.418C98.227,40.793,96.701,42.324,94.818,42.324z"></path></svg> Bitte die Orientierung beachten</div></div>');
+			$(this).find('.word-cloud-controller').prepend('<form style="margin: 20px 0;"><input type="radio" id="cloud_input_text" name="cloud_input" value="text" checked=""><label for="cloud_input_text"> Text</label><input type="radio" id="cloud_input_file" name="cloud_input" value="file"><label for="cloud_input_file"> Foto</label></form>');	
 			$(this).find('.word-cloud-controller').append('<button class="render-word-cloud" id="render-word-cloud-'+wpWordCloudSettings.id+'">Erstellen</button>');
 
 			$(this).prepend('<textarea class="word-cloud-text" id="word-cloud-text-'+wpWordCloudSettings.id+'" placeholder="Gib hier einen Text ein..."></textarea>');
@@ -98,15 +98,28 @@
 		var theVal = $(this).val();
 		 if (theVal == "file") {
 		 	$('input[type="file"]').show();
+		 	$('.kits_orientierung_wrapper').show();
 		 	$(".word-cloud-text-from-image-progress-bar-container").show();
 		 	$(".word-cloud-text").hide();
 		 	$(".word-cloud-text").val('');
 		 } else if (theVal == "text") {
 		 	$('input[type="file"]').hide();
+		 	$('.kits_orientierung_wrapper').hide();
 		 	$(".word-cloud-text-from-image-progress-bar-container").hide();
 		 	$(".word-cloud-text").show();
 		 }
 	});
+
+	// trigger click event after removing black list item
+	$(document).on('click', '.black-list-item', function () {
+		console.log("render again");
+		setTimeout(
+		  function() 
+		  {
+		     $("button.render-word-cloud").click();
+		  }, 300);
+	});
+	
 
 
 	$('.activate-black-list').click(function() {
@@ -141,7 +154,7 @@
 
 	$('.render-word-cloud').click(function() {
 
-		$("canvas.word-cloud").show();
+		//$("canvas.word-cloud").show();
 
 		var wpWordCloudSettings = getWordCloudSettings($(this).parent().parent()[0]);
 
@@ -172,7 +185,7 @@
 		wpwc(settings, "User added word to ingore list.");
 
 		// add word to black list below the word cloud
-		$('#word-cloud-black-list-'+settings.id).append('<span count='+item[1]+' class="black-list-item"><span class="black-list-word">' + item[0] + '</span><span class="black-list-word-removal">&#x2A2F;</span></span>');
+		$('#word-cloud-black-list-'+settings.id).append('<span count='+item[1]+' class="black-list-item"><span class="black-list-word">' + item[0] + '</span></span>');
 
 		settings.customBlackList = getCustomBlackList(settings);
 		
