@@ -176,9 +176,37 @@
     display: block;
 
 }
-    .word-cloud-text-from-image-progress-bar-container>progress{
-        width: 100%;
-    }
+
+ /* IE and EDGE */
+.word-cloud-text-from-image-progress-bar-container progress {
+    /* RESETS */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 20px;
+    background-color: #777;
+    color: #00a3d3;
+}
+
+/* WEBKIT BROWSERS - CHROME, OPERA AND SAFARI */
+.word-cloud-text-from-image-progress-bar-container progress::-webkit-progress-bar {
+    background-color: #777;
+    border-radius: 20px;
+}
+
+.word-cloud-text-from-image-progress-bar-container progress::-webkit-progress-value {
+    background-color: #00a3d3;
+    border-radius: 20px;
+}
+
+/* MOZILLA FIREFOX */
+.word-cloud-text-from-image-progress-bar-container progress::-moz-progress-bar {
+    background-color: #00a3d3;
+    border-radius: 20px;
+}
 
 
 .word-cloud-container textarea {
