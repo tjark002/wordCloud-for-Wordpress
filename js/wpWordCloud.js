@@ -41,6 +41,9 @@
 
 		// add canvas
 		$(this).append('<canvas class="word-cloud" style="width: 100%" height="'+wpWordCloudSettings.canvasHeight+'" width="'+wpWordCloudSettings.canvasWidth+'" id="word-cloud-'+wpWordCloudSettings.id+'"></canvas>');
+		
+		// add download button
+		$(this).append('<a href="#" class="canvas-download-button" id="btn-download-canvas" download="kits-wortwolke.png">Download</a>');
 
 		wpwc(wpWordCloudSettings, "Added canvas");
 
@@ -93,15 +96,19 @@
 
 	});
 
+	// check for iPad
+	var isIpad = navigator.userAgent.match(/iPad/i) != null;
+
 	// change between text and file upload
 	$('[name="cloud_input"]').change(function() {
 		var theVal = $(this).val();
 		 if (theVal == "file") {
 		 	$('input[type="file"]').show();
-		 	$('.kits_orientierung_wrapper').show();
+		 	if (isIpad) {
+			  $('.kits_orientierung_wrapper').show();
+			}
 		 	$(".word-cloud-text-from-image-progress-bar-container").show();
 		 	$(".word-cloud-text").hide();
-		 	$(".word-cloud-text").val('');
 		 } else if (theVal == "text") {
 		 	$('input[type="file"]').hide();
 		 	$('.kits_orientierung_wrapper').hide();
@@ -118,6 +125,19 @@
 		  {
 		     $("button.render-word-cloud").click();
 		  }, 300);
+	});
+
+	// Download canvas as png image
+	$(document).ready(function () {
+
+		var downloadButton = document.getElementById('btn-download-canvas');
+		downloadButton.addEventListener('click', function (e) {
+			var id = $("canvas.word-cloud").attr('id');
+			var canvas = document.getElementById(id);
+		    var dataURL = canvas.toDataURL('image/png');
+		    downloadButton.href = dataURL;
+		});
+
 	});
 	
 

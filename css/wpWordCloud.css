@@ -215,10 +215,11 @@
 }
 
 .word-cloud-container button.render-word-cloud,
-.word-cloud-container button.text-from-image {
+.word-cloud-container button.text-from-image,
+.canvas-download-button {
     display: inline-block;
     background-color: #00a3d3;
-    color: #fff;
+    color: #fff !important;
     padding: .538em 1.077em;
     font-family: inherit;
     font-size: .923em;
@@ -236,7 +237,8 @@
 }
 
 .word-cloud-container button.render-word-cloud:hover,
-.word-cloud-container button.text-from-image:hover {
+.word-cloud-container button.text-from-image:hover,
+.canvas-download-button:hover {
     background-color: #00456f;
 }   
 
@@ -278,12 +280,12 @@
 }
 .kits_orientierung {
     display: flex;
-    align-self: center;
+    align-items: center;
     justify-content: center;
     font-weight: bold;
 }
 .kits_orientierung svg {
-    height: 1.5em;
+    height: 2em;
     width: auto;
     margin-right: 10px;
 }
