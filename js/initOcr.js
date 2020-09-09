@@ -390,6 +390,12 @@
       const { data: { text } } = await worker.recognize(data);
 
       document.getElementById('word-cloud-text-'+wpWordCloudSettings.id).textContent = text;
+      
+      console.log("Texterkennung abgeschlossen");
+      // render word cloud
+      setTimeout(function() {
+         $("button.render-word-cloud").click();
+      }, 300);
 
       await worker.terminate();
 
