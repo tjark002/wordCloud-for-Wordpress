@@ -249,12 +249,18 @@
     background-color: #00456f;
 }   
 
+.canvas-download-button {
+    display: none;
+}
+
 .word-cloud-container {
     text-align: center;
 }
 
 .word-cloud {
-    margin: 30px 0;
+    display: flex;
+    max-width: 1024px;
+    margin: 30px auto;
 }
 
 .word-cloud-controller input[type=file],
@@ -292,7 +298,7 @@
     font-weight: bold;
 }
 .kits_orientierung svg {
-    height: 2em;
+    height: 1em;
     width: auto;
     margin-right: 10px;
 }
@@ -317,4 +323,17 @@
 }
 .github_link a:hover {
     color: #555;
+}
+canvas.word-cloud {
+    height: 1px;
+}
+.word-cloud-example {
+    background-image: url(../img/wortwolke-beispiel.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: top center;
+    width: 1024px;
+    height: 800px;
+    max-width: 100%;
+    margin: 30px auto;
 }

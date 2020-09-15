@@ -391,13 +391,13 @@
 
       document.getElementById('word-cloud-text-'+wpWordCloudSettings.id).textContent = text;
       
+      await worker.terminate();
+
       console.log("Texterkennung abgeschlossen");
       // render word cloud
       setTimeout(function() {
          $("button.render-word-cloud").click();
-      }, 300);
-
-      await worker.terminate();
+      }, 500);
 
       $('.ocr-loader-container').hide();
 
