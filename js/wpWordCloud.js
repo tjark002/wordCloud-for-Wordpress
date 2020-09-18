@@ -38,13 +38,7 @@
 			$(this).append('<label class="kits-label" for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'"><input checked type="checkbox" class="activate-black-list" id="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'" name="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Nur Adjektive, Verben und Nomen anzeigen</label>');
 
 		}
-		// add preview image (example)
-		$(this).append('<div class="word-cloud-example"></div>');
-		// add canvas
-		$(this).append('<canvas class="word-cloud" style="width: 100%" height="'+wpWordCloudSettings.canvasHeight+'" width="'+wpWordCloudSettings.canvasWidth+'" id="word-cloud-'+wpWordCloudSettings.id+'"></canvas>');
-		
-		wpwc(wpWordCloudSettings, "Added canvas");
-
+	        
 		// add hover container
 		// hiden on init
 		$(this).append('<div class="word-cloud-tooltip" id="word-cloud-tooltip-'+wpWordCloudSettings.id+'"></div>');
