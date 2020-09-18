@@ -38,6 +38,8 @@
 			$(this).append('<label class="kits-label" for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'"><input checked type="checkbox" class="activate-black-list" id="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'" name="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Nur Adjektive, Verben und Nomen anzeigen</label>');
 
 		}
+		
+		wpwc(wpWordCloudSettings, "Added canvas");
 	        
 		// add hover container
 		// hiden on init
