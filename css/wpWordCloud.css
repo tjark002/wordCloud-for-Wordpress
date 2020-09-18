@@ -331,9 +331,8 @@ canvas.word-cloud {
     background-image: url(../img/wortwolke-beispiel.png);
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: top center;
-    width: 1024px;
-    height: 800px;
-    max-width: 100%;
+    width: 100%;
+    height: 0;
+    padding-top: 78.125%;
     margin: 30px auto;
 }

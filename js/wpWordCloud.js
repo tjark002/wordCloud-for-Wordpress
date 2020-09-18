@@ -9,6 +9,9 @@
 
 		var wpWordCloudSettings = getWordCloudSettings(this);
 
+		window.wordcloudID = wpWordCloudSettings.id;
+		console.log("WordCloud ID: " + window.wordcloudID);
+
 		wpwc(wpWordCloudSettings, "Read settings");
 		
 		if (wpWordCloudSettings.data == null && wpWordCloudSettings.list == null) {
@@ -79,7 +82,7 @@
 
 			$(this).prepend('<textarea class="word-cloud-text" id="word-cloud-text-'+wpWordCloudSettings.id+'" placeholder="Gib hier einen Text ein..." rows="5"></textarea>');
 
-			$('#word-cloud-text-'+wpWordCloudSettings.id).text(wpWordCloudSettings.data);
+			$('#word-cloud-text-'+wpWordCloudSettings.id).val(wpWordCloudSettings.data);
 
 			wpwc(wpWordCloudSettings, "Added edit field");
 		
@@ -140,7 +143,10 @@
 	
 	// clears input field when changing input method (text/image)
 	$(".change-to-text, .change-to-image").click(function() {
-		$(".word-cloud-text").text('');
+
+		document.getElementById("word-cloud-text-" + window.wordcloudID).value = "";
+		document.getElementById("word-cloud-text-from-image-mobile-" + window.wordcloudID).value = "";
+
 	});
 
 	$('.activate-black-list').click(function() {
@@ -379,14 +385,12 @@
 
 				$('#word-cloud-tooltip-' + settings.id).text(item[1]);
 
-				$('#word-cloud-tooltip-' + settings.id).toggle();
+				$('#word-cloud-tooltip-' + settings.id).show();
 
-				$('#word-cloud-tooltip-' + settings.id).css({left: event.pageX - 10 - $('#word-details-' + settings.id).width(), top: event.pageY - $('#word-cloud-tooltip-' + settings.id).height()});
-	
+				$('#word-cloud-tooltip-' + settings.id).css({left: event.pageX, top: event.pageY});
 			}
 
 		};
-
 		return settings
 
 	}
