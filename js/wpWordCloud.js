@@ -39,6 +39,9 @@
 
 		}
 		
+		// add canvas
+		$(this).append('<canvas class="word-cloud" style="width: 100%" height="'+wpWordCloudSettings.canvasHeight+'" width="'+wpWordCloudSettings.canvasWidth+'" id="word-cloud-'+wpWordCloudSettings.id+'"></canvas>');
+		
 		wpwc(wpWordCloudSettings, "Added canvas");
 	        
 		// add hover container
