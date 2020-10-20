@@ -389,7 +389,7 @@
       await worker.initialize(wpWordCloudSettings.ocrLanguage);
       const { data: { text } } = await worker.recognize(data);
 
-      document.getElementById('word-cloud-text-'+wpWordCloudSettings.id).value = text;
+      document.getElementById('word-cloud-text-'+wpWordCloudSettings.id).value = text.replace(/\n/g, " ");
       
       await worker.terminate();
 
