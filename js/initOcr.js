@@ -11,8 +11,6 @@
 
     $(".word-cloud-container").each(function () {
 
-      console.log('five #################');
-
       var wpWordCloudSettings = getWordCloudSettings(this);
           
       // if ocr is enable, add button and overlay
@@ -336,15 +334,45 @@
     
     reader.onload = function (e) {
       var data = e.target.result;
+      var image = new Image();
 
-      ocrText(data, wpWordCloudSettings);
+      // so again, thank you: https://stackoverflow.com/questions/23945494/use-html5-to-resize-an-image-before-upload
+      image.onload = function (imageEvent) {
+
+          // Resize the image
+          var canvas = document.createElement('canvas'),
+              max_size = wpWordCloudSettings.maxImageSize,
+              width = image.width,
+              height = image.height;
+          if (width > height) {
+              if (width > max_size) {
+                  height *= max_size / width;
+                  width = max_size;
+              }
+          } else {
+              if (height > max_size) {
+                  width *= max_size / height;
+                  height = max_size;
+              }
+          }
+          canvas.width = width;
+          canvas.height = height;
+          canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+          resizedImage = canvas.toDataURL('image/jpeg');
+
+          ocrText(resizedImage, wpWordCloudSettings);
+
+          // for testing purposes: append resized image to dom
+          // $('#word-cloud-container-test').append(canvas);
+
+      }
+      image.src = data;
 
     };
  
     reader.readAsDataURL(file);
     
   }
-
 
   function ocrText(data, wpWordCloudSettings) {
 
@@ -364,7 +392,7 @@
 
       workerPath = 'https://unpkg.com/tesseract.js@v2.1.3/dist/worker.min.js';
       langPath = 'https://tessdata.projectnaptha.com/4.0.0_fast';
-      corePath = 'https://unpkg.com/tesseract.js-core@2.2.0/tesseract-core.wasm.js';
+      corePath = 'https://unpkg.com/tesseract.js-core@v2.2.0/tesseract-core.wasm.js';
 
     } 
 
@@ -389,15 +417,9 @@
       await worker.initialize(wpWordCloudSettings.ocrLanguage);
       const { data: { text } } = await worker.recognize(data);
 
-      document.getElementById('word-cloud-text-'+wpWordCloudSettings.id).value = text;
-      
-      await worker.terminate();
+      document.getElementById('word-cloud-text-'+wpWordCloudSettings.id).textContent = text;
 
-      console.log("Texterkennung abgeschlossen");
-      // render word cloud
-      setTimeout(function() {
-         $("button.render-word-cloud").click();
-      }, 500);
+      await worker.terminate();
 
       $('.ocr-loader-container').hide();
 
