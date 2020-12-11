@@ -11,8 +11,6 @@
 
     $(".word-cloud-container").each(function () {
 
-      console.log('five #################');
-
       var wpWordCloudSettings = getWordCloudSettings(this);
           
       // if ocr is enable, add button and overlay
@@ -394,7 +392,7 @@
 
       workerPath = 'https://unpkg.com/tesseract.js@v2.1.3/dist/worker.min.js';
       langPath = 'https://tessdata.projectnaptha.com/4.0.0_fast';
-      corePath = 'https://unpkg.com/tesseract.js-core@2.2.0/tesseract-core.wasm.js';
+      corePath = 'https://unpkg.com/tesseract.js-core@v2.2.0/tesseract-core.wasm.js';
 
     } 
 
