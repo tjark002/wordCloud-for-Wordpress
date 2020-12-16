@@ -346,15 +346,11 @@
 		// pass function to color option, based on the weight of the word 
 		settings.color = function (word, weight, fontSize, radius, theta) {
 		
-			// have fun ;)
-			var alpha = 1 - Math.round(10 * 
-				(
-					(1 - settings.minAlpha) - (
-						(weight - settings.minWordOccurence) / 
-						(settings.maxWeight - settings.minWordOccurence))
-					
-				)) / 10;
-
+			var alpha = weight / settings.maxWeight
+			if (alpha < settings.minAlpha) {
+				alpha = settings.minAlpha;
+			}
+			
 			return "rgba(0,0,0," + alpha + ")";
 
 		};
