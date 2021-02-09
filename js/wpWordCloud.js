@@ -41,6 +41,14 @@
 			$(this).append('<label class="kits-label" for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'"><input checked type="checkbox" class="activate-black-list" id="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'" name="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Nur Adjektive, Verben und Nomen anzeigen</label>');
 
 		}
+		
+		// add container where user can edit settings from frontend
+		if (wpWordCloudSettings.frontendSettings == true) {
+
+			$(this).append('<label for="word-cloud-setting-min-word-occurence" class="word-cloud-setting-min-word-occurence-label">min-word-occurence:</label> <input type="text" value="' + wpWordCloudSettings.minWordOccurence + '" class="word-cloud-setting-min-word-occurence" id="word-cloud-setting-min-word-occurence-'+wpWordCloudSettings.id+'" name="word-cloud-setting-min-word-occurence-'+wpWordCloudSettings.id+'"></input>');
+
+		}		
+		
 		// add preview image (example)
 		$(this).append('<div class="word-cloud-example"></div>');
 		// add canvas
