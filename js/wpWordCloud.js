@@ -46,7 +46,7 @@
 		if (wpWordCloudSettings.frontendSettings == true) {
 
 			$(this).append('<label for="word-cloud-setting-min-word-occurence" class="word-cloud-setting-min-word-occurence-label">min-word-occurence:</label> <input type="text" value="' + wpWordCloudSettings.minWordOccurence + '" class="word-cloud-setting-min-word-occurence" id="word-cloud-setting-min-word-occurence-'+wpWordCloudSettings.id+'" name="word-cloud-setting-min-word-occurence-'+wpWordCloudSettings.id+'"></input>');
-
+                        $(this).append('<label for="word-cloud-setting-size-factor" class="word-cloud-setting-size-factor-label">size-factor:</label> <input type="text" value="' + wpWordCloudSettings.sizeFactor + '" class="word-cloud-setting-size-factor" id="word-cloud-setting-size-factor-'+wpWordCloudSettings.id+'" name="word-cloud-setting-size-factor-'+wpWordCloudSettings.id+'"></input>');
 		}		
 		
 		// add preview image (example)
