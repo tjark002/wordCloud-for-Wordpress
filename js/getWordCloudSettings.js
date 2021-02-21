@@ -106,13 +106,8 @@ function getWordCloudSettings(element) {
 
             processedSettings.sizeFactor = document.getElementById('word-cloud-setting-size-factor-'+processedSettings.id).value
 
-        }
-        
-         if (document.getElementById('word-cloud-setting-shrink-to-fit-'+processedSettings.id)) {
-
-            processedSettings.shrinkToFit = document.getElementById('word-cloud-setting-shrink-to-fit-'+processedSettings.id).checked
-
-        }
+        }        
+       
     }
     
     return processedSettings;
