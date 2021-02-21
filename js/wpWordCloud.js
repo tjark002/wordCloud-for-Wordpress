@@ -59,8 +59,12 @@
 
 		// add hover container
 		// hiden on init
+		if (wpWordCloudSettings.shrinkToFit == false) {
+		
 		$(this).append('<div class="word-cloud-tooltip" id="word-cloud-tooltip-'+wpWordCloudSettings.id+'"></div>');
 
+		}
+		
 		// force tooltop to disappear when mouse cursor leaves canvas
 		$('#word-cloud-' + wpWordCloudSettings.id).mouseleave(function(){
 			
