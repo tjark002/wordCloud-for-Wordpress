@@ -38,7 +38,7 @@
 		}
 		if (wpWordCloudSettings.enableCustomBlackList == 1 || wpWordCloudSettings.enableBlackList == 1) {
 
-			$(this).append('<label class="kits-label" for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'"><input checked type="checkbox" class="activate-black-list" id="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'" name="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Nur Adjektive, Verben und Nomen anzeigen</label>');
+			$(this).append('<label class="kits-label" for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'"><input checked type="checkbox" class="activate-black-list" id="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'" name="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Zeige nur Nomen, Adjektive und Verben.</label>');
 
 		}
 		
@@ -47,6 +47,7 @@
 
 			$(this).append('<label for="word-cloud-setting-min-word-occurence" class="word-cloud-setting-min-word-occurence-label">min-word-occurence:</label> <input type="text" value="' + wpWordCloudSettings.minWordOccurence + '" class="word-cloud-setting-min-word-occurence" id="word-cloud-setting-min-word-occurence-'+wpWordCloudSettings.id+'" name="word-cloud-setting-min-word-occurence-'+wpWordCloudSettings.id+'"></input>');
                         $(this).append('<label for="word-cloud-setting-size-factor" class="word-cloud-setting-size-factor-label">size-factor:</label> <input type="text" value="' + wpWordCloudSettings.sizeFactor + '" class="word-cloud-setting-size-factor" id="word-cloud-setting-size-factor-'+wpWordCloudSettings.id+'" name="word-cloud-setting-size-factor-'+wpWordCloudSettings.id+'"></input>');
+		        $(this).append('<label class="kits-label" for="word-cloud-shrink-to-fit-'+wpWordCloudSettings.id+'"><input checked type="checkbox" class="shrink-to-fit" id="word-cloud-shrink-to-fit-'+wpWordCloudSettings.id+'" name="word-cloud-shrink-to-fit-'+wpWordCloudSettings.id+'">Verkleinere Wörter, damit sie auf die Zeichenfläche passen.</label>');
 		}		
 		
 		// add preview image (example)
