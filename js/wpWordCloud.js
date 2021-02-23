@@ -25,7 +25,8 @@
 		}
 
 		$(this).append('<div class="word-cloud-controller"></div>');
-
+		// add container to add every cloud setting option into it
+		$(this).find('.word-cloud-controller').append('<div><button id="cloud-settings-btn"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cog" class="svg-inline--fa fa-cog fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"></path></svg> Einstellungen <span>anzeigen</span></button></div><div id="cloud-settings"></div>');
 		// add black list container
 		// contains words clicked by user
 		if (wpWordCloudSettings.enableCustomBlackList == 1) {
@@ -36,19 +37,31 @@
 			//$(this).append('<label for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Ignore-Liste anwenden</label>');
 			
 		}
-		if (wpWordCloudSettings.enableCustomBlackList == 1 || wpWordCloudSettings.enableBlackList == 1) {
 
-			$(this).append('<label class="kits-label" for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'"><input checked type="checkbox" class="activate-black-list" id="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'" name="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Zeige nur Nomen, Adjektive und Verben.</label>');
-
-		}
 		
 		// add container where user can edit settings from frontend
 		if (wpWordCloudSettings.frontendSettings == true) {
+			$(this).find('#cloud-settings').append('<p>Welche Größe sollen die Wörter haben, die in der Wortwolke erscheinen?</p><div class="cloud-slidecontainer"><input type="range" id="cloud-slider" value="1" class="cloud-slider" name="cloud-slider" min="1" max="6" step="1"></div>');
 
-			$(this).append('<label for="word-cloud-setting-min-word-occurence" class="word-cloud-setting-min-word-occurence-label">min-word-occurence:</label> <input type="text" value="' + wpWordCloudSettings.minWordOccurence + '" class="word-cloud-setting-min-word-occurence" id="word-cloud-setting-min-word-occurence-'+wpWordCloudSettings.id+'" name="word-cloud-setting-min-word-occurence-'+wpWordCloudSettings.id+'"></input>');
-                        $(this).append('<label for="word-cloud-setting-size-factor" class="word-cloud-setting-size-factor-label">size-factor:</label> <input type="text" value="' + wpWordCloudSettings.sizeFactor + '" class="word-cloud-setting-size-factor" id="word-cloud-setting-size-factor-'+wpWordCloudSettings.id+'" name="word-cloud-setting-size-factor-'+wpWordCloudSettings.id+'"></input>');
+			var wordOccurenceContent = '' +
+			'<p>Wie häufig muss ein Wort vorkommen, um in der Wortwolke angezeigt zu werden?</p>' +
+			'<div class="cloud-input-group">' +
+			  '<input type="button" value="-" class="word-occurence-minus" data-field="word-cloud-setting-min-word-occurence-'+wpWordCloudSettings.id+'">' +
+			  '<input type="number" step="1" max="" value="' + wpWordCloudSettings.minWordOccurence + '" id="word-cloud-setting-min-word-occurence-'+wpWordCloudSettings.id+'" name="word-cloud-setting-min-word-occurence-'+wpWordCloudSettings.id+'" class="word-cloud-setting-min-word-occurence">' +
+			  '<input type="button" value="+" class="word-occurence-plus" data-field="word-cloud-setting-min-word-occurence-'+wpWordCloudSettings.id+'">' +
+			'</div>';
+
+			$(this).find('#cloud-settings').append(wordOccurenceContent);
+
+        	$(this).find('#cloud-settings').append('<input type="text" value="' + wpWordCloudSettings.sizeFactor + '" class="word-cloud-setting-size-factor" id="word-cloud-setting-size-factor-'+wpWordCloudSettings.id+'" name="word-cloud-setting-size-factor-'+wpWordCloudSettings.id+'" hiddenwp>');
 		     
-		}		
+		}	
+
+		if (wpWordCloudSettings.enableCustomBlackList == 1 || wpWordCloudSettings.enableBlackList == 1) {
+
+			$(this).find('#cloud-settings').append('<label class="kits-label" for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'"><input checked type="checkbox" class="activate-black-list" id="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'" name="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Zeige nur Nomen, Adjektive und Verben.</label>');
+
+		}
 		
 		// add preview image (example)
 		$(this).append('<div class="word-cloud-example"></div>');
@@ -131,6 +144,66 @@
 		 }
 	});
 
+	// slider change function
+	$('#cloud-slider').change(function() {
+		// 200, 180, 160, 140, 120, 100
+		var theVal = $(this).val() - 1;
+		var values = [200, 180, 160, 140, 120, 100];
+		$(".word-cloud-setting-size-factor").val(values[theVal]); 
+	});
+
+	// plus and minus button
+	function incrementValue(e) {
+	  e.preventDefault();
+	  var fieldName = $(e.target).data('field');
+	  var parent = $(e.target).closest('div');
+	  var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+	  if (!isNaN(currentVal)) {
+	    parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+	  } else {
+	    parent.find('input[name=' + fieldName + ']').val(0);
+	  }
+	}
+
+	function decrementValue(e) {
+	  e.preventDefault();
+	  var fieldName = $(e.target).data('field');
+	  var parent = $(e.target).closest('div');
+	  var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+
+	  if (!isNaN(currentVal) && currentVal > 1) {
+	    parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+	  } else {
+	    parent.find('input[name=' + fieldName + ']').val(1);
+	  }
+	}
+
+	$('.cloud-input-group').on('click', '.word-occurence-plus', function(e) {
+	  incrementValue(e);
+	});
+
+	$('.cloud-input-group').on('click', '.word-occurence-minus', function(e) {
+	  decrementValue(e);
+	});
+	
+	// show settings
+	$(document).on('click', '#cloud-settings-btn', function () {
+
+		var settingsContainer = $("#cloud-settings");
+		var buttonSpan = $("#cloud-settings-btn span");
+		if ($(this).hasClass("cloud-settings-active")) {
+			settingsContainer.slideUp(500);
+			$(this).removeClass("cloud-settings-active");
+			buttonSpan.text("anzeigen");
+		} else {
+			settingsContainer.slideDown(500);
+			$(this).addClass("cloud-settings-active");
+			buttonSpan.text("ausblenden");
+		}
+		
+
+	});
 	// trigger click event after removing black list item
 	$(document).on('click', '.black-list-item', function () {
 		console.log("render again");
@@ -191,6 +264,8 @@
 		WordCloud($('#word-cloud-' + wpWordCloudSettings.id)[0], wpWordCloudSettings);
 
 	})
+
+
 
 	$('.render-word-cloud').click(function() {
 
