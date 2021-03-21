@@ -161,9 +161,9 @@
 
 	// slider change function
 	$('#cloud-slider').change(function() {
-		// 200, 180, 160, 140, 120, 100
+		// 160, 140, 120, 100, 80, 60
 		var theVal = $(this).val() - 1;
-		var values = [200, 180, 160, 140, 120, 100];
+		var values = [160, 140, 120, 100, 80, 60];
 		$(".word-cloud-setting-size-factor").val(values[theVal]); 
 	});
 
