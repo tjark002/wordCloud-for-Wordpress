@@ -6,7 +6,7 @@
 		var parentWidth = $canvas.parent().outerWidth();
 		var parentHeight =  $canvas.parent().outerHeight();
 		$canvas.attr('width', parentWidth);
-		$canvas.attr('height', parentWidth * 1.5);
+		$canvas.attr('height', parentWidth);
 		console.log("canvas resize");
 	}
 
