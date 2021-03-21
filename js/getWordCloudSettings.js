@@ -30,10 +30,6 @@ function getWordCloudSettings(element) {
     processedSettings.frontendSettings 	= Boolean(settings['frontend-settings']);
     processedSettings.backgroundColor 	= settings['background-color'];
     processedSettings.gridSize 			= settings['grid-size'];
-    // smaller gridSize on mobile
-    if (screen.width <= 480) {
-        processedSettings.gridSize      = "15";    
-    }
     processedSettings.fontFamily 		= settings['font-family'];
     processedSettings.minSize 			= settings['min-size'];
     processedSettings.fontWeight 		= settings['font-weight'];

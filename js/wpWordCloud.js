@@ -1,20 +1,5 @@
 (function ($) {
 
-	// Responsive Function (trigger before drawing canvas) 
-	function canvasResize() {   
-		$canvas = $(".word-cloud"); 
-		var parentWidth = $canvas.parent().outerWidth();
-		var parentHeight =  $canvas.parent().outerHeight();
-		$canvas.attr('width', parentWidth);
-		$canvas.attr('height', parentWidth * 1.5);
-		console.log("canvas resize");
-	}
-
-	// Trigger canvas resize function on window resize
-	$(window).on('resize', function() {                      
-		canvasResize();
-	});
-
 	'use strict';
 
 	// init
@@ -284,9 +269,6 @@
 
 	$('.render-word-cloud').click(function() {
 
-		// canvas container resize
-		canvasResize();
-
 		$("canvas.word-cloud").css("height", "auto");
 		$(".word-cloud-example").hide();
 		$(".canvas-download-button").css("display", "inline-block");
@@ -537,3 +519,6 @@
 	}
 
 })(jQuery);
+
+
+
