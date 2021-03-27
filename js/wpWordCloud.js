@@ -59,7 +59,7 @@
 
 		if (wpWordCloudSettings.enableCustomBlackList == 1 || wpWordCloudSettings.enableBlackList == 1) {
 
-			$(this).find('#cloud-settings').append('<label class="kits-label" for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'"><input checked type="checkbox" class="activate-black-list" id="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'" name="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Zeige nur Nomen, Adjektive & Verben.</label>');
+			$(this).find('#cloud-settings').append('<label class="kits-label" for="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'"><input checked type="checkbox" class="activate-black-list" id="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'" name="word-cloud-activate-black-list-'+wpWordCloudSettings.id+'">Nur Nomen, Adjektive und Verben</label>');
 
 		}
 		
