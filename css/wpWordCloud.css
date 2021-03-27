@@ -38,20 +38,23 @@
     
 }
 
-.word-cloud-tooltip {
-    position: absolute;
-    z-index: 1000;
-    display: none;
-    background-color: #fff;
-    line-height: 1;
-    color: #000;
-    border: 1px solid #eeeeee;
-    border-radius: 4px;
-    padding: 10px 15px;
-}
 
-.word-cloud-tooltip::before {
+@media (hover: none) {
+   .word-cloud-tooltip {
+       position: absolute;
+       z-index: 1000;
+       display: none;
+       background-color: #fff;
+       line-height: 1;
+       color: #000;
+       border: 1px solid #eeeeee;
+       border-radius: 4px;
+       padding: 10px 15px;
+   }
+
+   .word-cloud-tooltip::before {
     content: 'Anzahl: ';
+   }
 }
 
 .text-from-image-container {
