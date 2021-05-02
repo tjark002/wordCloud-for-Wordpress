@@ -29,7 +29,6 @@ function getWordCloudSettings(element) {
 
     processedSettings.frontendSettings 	= Boolean(settings['frontend-settings']);
     processedSettings.backgroundColor 	= settings['background-color'];
-    processedSettings.color 	        = settings['color'];
     processedSettings.gridSize 			= settings['grid-size'];
     processedSettings.fontFamily 		= settings['font-family'];
     processedSettings.minSize 			= settings['min-size'];
