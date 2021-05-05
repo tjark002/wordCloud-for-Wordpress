@@ -283,7 +283,7 @@
 
 		wpWordCloudSettings.customBlackList = getCustomBlackList(wpWordCloudSettings);
 
-		wpWordCloudSettings.data = $('#word-cloud-text-'+wpWordCloudSettings.id).val().replace(/\n/g, " ");
+		wpWordCloudSettings.data = $('#word-cloud-text-'+wpWordCloudSettings.id).val();
 
 		wpWordCloudSettings.list = countWords(wpWordCloudSettings);
 		
