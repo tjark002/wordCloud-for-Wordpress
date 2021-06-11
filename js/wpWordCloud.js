@@ -446,7 +446,12 @@
 		settings.weightFactor = function (size) {
 
 			//return size * $('#word-cloud-'+settings.id).width() / (settings.sizeFactor * (settings.maxWeight / 15));
-            return size * $('#word-cloud-'+settings.id).width() / (settings.sizeFactor * (settings.maxWeight / 150));
+            var resSize = size * $('#word-cloud-'+settings.id).width() / (settings.sizeFactor * (settings.maxWeight / 150));
+            var minSize = 40;
+            if (resSize < minSize) {
+                resSize = minSize;
+            }
+            return resSize; 
 
 			// return Math.pow(size, 2.5) * $('#myWordCloud2').width() / 256;
 		
