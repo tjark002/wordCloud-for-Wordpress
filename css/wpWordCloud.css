@@ -492,3 +492,12 @@ canvas.word-cloud {
     top: -100%;
     width: 1in;
 }
+
+.colorpicker-wrapper {
+    display: inline-block;
+    width: 15%;
+}
+
+.colorpicker {
+    display: block;
+}

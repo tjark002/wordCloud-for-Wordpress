@@ -36,7 +36,10 @@
 			'canvas-height'		=> ['default' => '800px',               'hidden' => false, 'description' => 'Lege die Höhe des Canvas fest.'],
 
             'background-color'	=> ['default' => 'rgba(255,255,255,0)', 'hidden' => false, 'description' => 'Der Hintergrund des Canvas. Nutze entweder die rgba() oder Hex-Angabe.'],
-            'font-color'        => ['default' => 'rgb(0,0,0)',     	    'hidden' => false, 'description' => 'Die Textfarbe für das größte Wort. Bitte die rgb() Angabe verwenden.'],
+            'font-color1'       => ['default' => '#00a3d3',     	    'hidden' => false, 'description' => 'Farbe 1 für die Wortwolke. Bitte die Hex-Angabe verwenden.'],
+            'font-color2'       => ['default' => '#00456f',     	    'hidden' => false, 'description' => 'Farbe 2 für die Wortwolke. Bitte die Hex-Angabe verwenden.'],
+            'font-color3'       => ['default' => '#000000',     	    'hidden' => false, 'description' => 'Farbe 3 für die Wortwolke. Bitte die Hex-Angabe verwenden.'],
+            'font-color4'       => ['default' => '#d6d2db',             'hidden' => false, 'description' => 'Farbe 4 für die Wortwolke. Bitte die Hex-Angabe verwenden.'],
             'grid-size'			=> ['default' => 1,                     'hidden' => false, 'description' => 'Hiermit kannst du die Abstände zwischen den Wörtern erhöhen.'],
 			'font-family'		=> ['default' => 'Arial, sans-serif',   'hidden' => false, 'description' => 'Die CSS-Angabe für die verwendete Schriftart.'],
 			'min-size'			=> ['default' => 1,                     'hidden' => false, 'description' => 'Wie groß muss ein Wort sein, um in der WordCloud angezeigt zu werden?'],
