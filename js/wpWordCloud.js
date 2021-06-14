@@ -297,6 +297,8 @@
 		console.log(wpWordCloudSettings);
 
 		WordCloud($('#word-cloud-' + wpWordCloudSettings.id)[0], wpWordCloudSettings);
+        
+        document.getElementById("word-cloud-container-cloud").scrollIntoView({ behavior: "smooth" });
 
 	});
 
@@ -437,12 +439,16 @@
 		// pass function to color option, based on the weight of the word 
 		settings.color = function (word, weight, fontSize, radius, theta) {
 		
+            
 			var alpha = weight / settings.maxWeight
 			if (alpha < settings.minAlpha) {
 				alpha = settings.minAlpha;
 			}
+            
+            var c = settings.fontColor;
+            var rgb = c.match(/\d+/g);
 			
-			return "rgba(0,0,0," + alpha + ")";
+			return "rgba(" + rgb[0] + ", " + rgb[1] + ", " + rgb[2] + ", " + alpha + ")";
 
 		};
 

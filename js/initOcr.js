@@ -59,11 +59,6 @@
       });
   
     }
-    
-    function addDpiDiv (target) {
-        $(target).find('.word-cloud-controller').prepend(
-        '<div id="dpi"></div>');
-    }
 
     function addProgressBar(target, wpWordCloudSettings) {
 
