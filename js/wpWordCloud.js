@@ -69,11 +69,7 @@
                 '<div><div>' +
                 '   <input type="checkbox" id="shrink-to-fit" name="shrink-to-fit" ' + (wpWordCloudSettings.shrinkToFit == 1 ? "checked" : "") + ' />'+
                 '       <label for="shrink-to-fit">Wortwolke auf Bilschirmgröße verkleinern</label>' +
-                '</div>' +
-                '<div>' +
-                '   <input type="checkbox" id="draw-out-of-bound" name="draw-out-of-bound" ' + (wpWordCloudSettings.drawOutOfBound == 1 ? "checked" : "") + ' />' +
-                '       <label for="draw-out-of-bound">Über den Bildschirmrand zeichnen</label>' +
-                '</div></div>';
+                '</div>';
 
 			var wordOccurenceContent = '' +
 			'<p>Wie häufig muss ein Wort vorkommen, um in der Wortwolke angezeigt zu werden?</p>' +
@@ -92,6 +88,7 @@
             //Change settings after checking/unchecking shrink-to-fit
             $('#shrink-to-fit').change(function() {
                 wpWordCloudSettings.shrinkToFit = $('#shrink-to-fit').prop('checked');
+                wpWordCloudSettings.drawOutOfBound = !$('#draw-out-of-bound').prop('checked');
                 if (wpWordCloudSettings.shrinkToFit == false) {
                     
                   $('<div class="word-cloud-tooltip" id="word-cloud-tooltip-'+wpWordCloudSettings.id+'"></div>').insertBefore('#btn-download-canvas');
@@ -101,11 +98,6 @@
                   $('.word-cloud-tooltip').remove();  
                     
                 }
-            });
-            
-            //Change settings after checking/unchecking draw-out-of-bound
-            $('#draw-out-of-bound').change(function() {
-                wpWordCloudSettings.drawOutOfBound = $('#draw-out-of-bound').prop('checked');
             });
 		}	
         
