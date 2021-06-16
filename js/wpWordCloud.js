@@ -41,7 +41,7 @@
 		
 		// add container where user can edit settings from frontend
 		if (wpWordCloudSettings.frontendSettings == true) {
-			$(this).find('#cloud-settings').append('<p>Welche Größe sollen die Wörter haben, die in der Wortwolke erscheinen?</p><div class="cloud-slidecontainer"><input type="range" id="cloud-slider" value="1" class="cloud-slider" name="cloud-slider" min="1" max="6" step="1"></div>');
+			$(this).find('#cloud-settings').append('<p>Welche Größe sollen die Wörter haben, die in der Wortwolke erscheinen?</p><div class="cloud-slidecontainer"><input type="range" id="cloud-slider" value="3" class="cloud-slider" name="cloud-slider" min="1" max="6" step="1"></div>');
 
             //Adding colorpicker html
             var colorPickerContent = '' +
@@ -62,7 +62,7 @@
                 '       <label class="colorpicker" for="color4">Farbe 4</label>' +
                 '</div>';
             
-            $(this).find('#cloud-settings').append(colorPickerContent);
+            //$(this).find('#cloud-settings').append(colorPickerContent);
             
             //Add checkboxes for out of bound and shrink to fit
             var shrinkDraw = '' +
@@ -83,10 +83,10 @@
 
         	$(this).find('#cloud-settings').append('<input type="text" value="' + wpWordCloudSettings.sizeFactor + '" class="word-cloud-setting-size-factor" id="word-cloud-setting-size-factor-'+wpWordCloudSettings.id+'" name="word-cloud-setting-size-factor-'+wpWordCloudSettings.id+'" hiddenwp>');
             
-		    $(this).find('#cloud-settings').append(shrinkDraw);
+		    //$(this).find('#cloud-settings').append(shrinkDraw);
             
             //Change settings after checking/unchecking shrink-to-fit
-            $('#shrink-to-fit').change(function() {
+            /*$('#shrink-to-fit').change(function() {
                 wpWordCloudSettings.shrinkToFit = $('#shrink-to-fit').prop('checked');
                 wpWordCloudSettings.drawOutOfBound = !$('#draw-out-of-bound').prop('checked');
                 if (wpWordCloudSettings.shrinkToFit == false) {
@@ -98,7 +98,7 @@
                   $('.word-cloud-tooltip').remove();  
                     
                 }
-            });
+            });*/
 		}	
         
 
@@ -192,10 +192,18 @@
 	});
 
 	// slider change function
+	$('#cloud-slider').load(function() {
+		// 180, 150, 120, 90, 60, 30
+		var theVal = $(this).val() - 1;
+		var values = [180, 150, 120, 90, 60, 30];
+		$(".word-cloud-setting-size-factor").val(values[theVal]); 
+	});
+    
+	// slider change function
 	$('#cloud-slider').change(function() {
 		// 180, 150, 120, 90, 60, 30
 		var theVal = $(this).val() - 1;
-		var values = [180, 160, 120, 90, 60, 30];
+		var values = [180, 150, 120, 90, 60, 30];
 		$(".word-cloud-setting-size-factor").val(values[theVal]); 
 	});
 
@@ -248,7 +256,7 @@
 			$(this).addClass("cloud-settings-active");
 			buttonSpan.text("ausblenden");
 		}
-        $(this).append('<div id="dpi"></div>');
+        //$(this).append('<div id="dpi"></div>');
 		
 
 	});
@@ -491,11 +499,15 @@
 			}
             
             //Using a random color for a new word. 
-            var randNumber =  Math.floor(Math.random() * 4) + 1;
+            //var randNumber =  Math.floor(Math.random() * 4) + 1;
+            var randNumber =  Math.floor(Math.random() * 4);
             
-            var c1 = $("#color" + randNumber).val();
+            //var c = $("#color" + randNumber).val();
+            
+            var colors = [settings.fontColor1, settings.fontColor2, settings.fontColor3, settings.fontColor4];
+            var c =  colors[randNumber];
 			
-			return "rgba(" + hexToRgb(c1).r + ", " + hexToRgb(c1).g + ", " + hexToRgb(c1).b + ", " + alpha + ")";
+			return "rgba(" + hexToRgb(c).r + ", " + hexToRgb(c).g + ", " + hexToRgb(c).b + ", " + alpha + ")";
 
 		};
 
