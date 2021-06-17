@@ -351,7 +351,7 @@
 
 		WordCloud($('#word-cloud-' + wpWordCloudSettings.id)[0], wpWordCloudSettings);
         
-        document.getElementById("word-cloud-container-cloud").scrollIntoView({ behavior: "smooth" });
+        document.getElementById("word-cloud-cloud").scrollIntoView({block: "end", behavior: "smooth" });
 
 	});
 
