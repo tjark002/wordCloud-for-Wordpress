@@ -100,7 +100,17 @@ final class WPWordCloud {
 			array(), 
 			$this->version, 
 			'all' );
-
+        
+        wp_enqueue_style(
+			'evol-colorpicker-css', 
+			plugin_dir_url( __DIR__ ) . 'css/evol-colorpicker.min.css', 
+			array());
+        
+        wp_enqueue_style(
+			'jquery-ui-lightness', 
+			plugin_dir_url( __DIR__ ) . 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css', 
+			array());
+            
 		wp_register_script(
 			 'word-cloud-renderer',
 			 plugin_dir_url( __DIR__ ) . 'lib/wordcloud2.js', 
@@ -118,6 +128,13 @@ final class WPWordCloud {
 			 plugin_dir_url( __DIR__ ) . 'js/wpWordCloud.js',
 			 array( 'word-cloud-settings' )                     
 		);
+        
+        wp_enqueue_script(
+			'evol-colorpicker',
+			plugin_dir_url( __DIR__ ) . 'js/evol-colorpicker.min.js',
+			array( 'jquery' )
+
+	    );
 
 		if ($this->settings['enable-ocr'] == 1) {
 

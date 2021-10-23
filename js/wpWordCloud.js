@@ -46,6 +46,185 @@
             //Adding colorpicker html
             var colorPickerContent = '' +
                 '<div class="colorpicker-wrapper">' +
+                '   <div class="colorpicker-wrapper-inner">' +
+                '       <div id="color1" class="colorpicker" name="color1" style="background-color:' + wpWordCloudSettings.fontColor1 + '"></div>'+
+                '       <label for="color1">Farbe 1</label>' +
+                '   </div>' +
+                '   <div class="colorpicker-wrapper-inner">' +
+                '       <div id="color2" class="colorpicker" name="color2" style="background-color:' + wpWordCloudSettings.fontColor2 + '"></div>' +
+                '       <label class="colorpicker" for="color2">Farbe 2</label>' +
+                '   </div>' +
+                '   <div class="colorpicker-wrapper-inner">' +
+                '       <div id="color3" class="colorpicker" name="color3" style="background-color:' + wpWordCloudSettings.fontColor3 + '"></div>' +
+                '       <label class="colorpicker" for="color3">Farbe 3</label>' +
+                '   </div>' +
+                '   <div class="colorpicker-wrapper-inner">' +
+                '       <div id="color4" class="colorpicker" name="color4" style="background-color:' + wpWordCloudSettings.fontColor4 + '"></div>' +
+                '       <label class="colorpicker" for="color4">Farbe 4</label>' +
+                '   </div>' +
+                '</div>' +
+                '<div id="colorpickwidget">' +
+                    '<div>' +
+                    '   <label id="mycolor1label" class="mycolorlabel" for="mycolor1">Auswahl für Farbe 1</label>' +
+                    '   <div id="mycolor1" class="colorPicker evo-cp0" />' +
+                    '</div>' +
+                    '<div>' +
+                    '   <label id="mycolor2label" class="mycolorlabel" for="mycolor1">Auswahl für Farbe 2</label>' +
+                    '   <div id="mycolor2" class="colorPicker evo-cp0" />' +
+                    '</div>' +
+                    '<div>' +
+                    '   <label id="mycolor3label" class="mycolorlabel" for="mycolor1">Auswahl für Farbe 3</label>' +
+                    '   <div id="mycolor3" class="colorPicker evo-cp0" />' +
+                    '</div>' +
+                    '<div>' +
+                    '   <label id="mycolor4label" class="mycolorlabel" for="mycolor1">Auswahl für Farbe 4</label>' +
+                    '   <div id="mycolor4" class="colorPicker evo-cp0" />' +
+                    '</div>'+
+                '</div>';
+            
+            //Adding colorpicker html
+            /*var colorPickerContent = '' +
+                '<div class="colorpicker-wrapper">' +
+                '   <div id="color1" name="color1" style="width: 30px; height: 30px; background-color:' + wpWordCloudSettings.fontColor1 + '"/>'+
+                //'       <label class="colorpicker" for="color1">Farbe 1</label>' +
+                '</div>' +
+                '<div class="colorpicker-wrapper">' +
+                '   <div id="color2" name="color2" style="width: 30px; height: 30px; background-color:' + wpWordCloudSettings.fontColor2 + '"/>' +
+                //'       <label class="colorpicker" for="color2">Farbe 2</label>' +
+                '</div>' +
+                '<div class="colorpicker-wrapper">' +
+                '   <div id="color3" name="color3" style="width: 30px; height: 30px; background-color:' + wpWordCloudSettings.fontColor3 + '"/>' +
+                //'       <label class="colorpicker" for="color3">Farbe 3</label>' +
+                '</div>' +
+                '<div class="colorpicker-wrapper">' +
+                '   <div id="color4" name="color4" style="width: 30px; height: 30px; background-color:' + wpWordCloudSettings.fontColor4 + '"/>' +
+                //'       <label class="colorpicker" for="color4">Farbe 4</label>' +
+                '</div>' +
+                '<div style="width:128px;">' +
+                '   <div style="width:100px;" id="mycolor1" class="colorPicker evo-cp0" />' +
+                '</div>' +
+                '<div style="width:128px;">' +
+                '   <div style="width:100px;" id="mycolor2" class="colorPicker evo-cp0" />' +
+                '</div>' +
+                '<div style="width:128px;">' +
+                '   <div style="width:100px;" id="mycolor3" class="colorPicker evo-cp0" />' +
+                '</div>' +
+                '<div style="width:128px;">' +
+                '   <div style="width:100px;" id="mycolor4" class="colorPicker evo-cp0" />' +
+                '</div>';*/
+            
+                        
+            $(this).find('#cloud-settings').append(colorPickerContent);
+            
+            $("#color1").click(function() {
+                if ($("#mycolor1").is(":visible")) {
+                    $("#mycolor1").hide();
+                    $("#mycolor1label").hide();
+                } else {
+                    $("#mycolor1").show();
+                    $("#mycolor2").hide();
+                    $("#mycolor3").hide();
+                    $("#mycolor4").hide();
+                    $("#mycolor1label").show();
+                    $("#mycolor2label").hide();
+                    $("#mycolor3label").hide();
+                    $("#mycolor4label").hide();
+                }
+            });
+            $("#color2").click(function() {
+                if ($("#mycolor2").is(":visible")) {
+                    $("#mycolor2").hide();
+                    $("#mycolor2label").hide();
+                } else {
+                    $("#mycolor1").hide();
+                    $("#mycolor2").show();
+                    $("#mycolor3").hide();
+                    $("#mycolor4").hide();
+                    $("#mycolor1label").hide();
+                    $("#mycolor2label").show();
+                    $("#mycolor3label").hide();
+                    $("#mycolor4label").hide();
+                }
+            });
+            $("#color3").click(function() {
+                if ($("#mycolor3").is(":visible")) {
+                    $("#mycolor3").hide();
+                    $("#mycolor3label").hide();
+                } else {
+                    $("#mycolor1").hide();
+                    $("#mycolor2").hide();
+                    $("#mycolor3").show();
+                    $("#mycolor4").hide();
+                    $("#mycolor1label").hide();
+                    $("#mycolor2label").hide();
+                    $("#mycolor3label").show();
+                    $("#mycolor4label").hide();
+                }
+            });
+            $("#color4").click(function() {
+                if ($("#mycolor4").is(":visible")) {
+                    $("#mycolor4").hide();
+                    $("#mycolor4label").hide();
+                } else {
+                    $("#mycolor1").hide();
+                    $("#mycolor2").hide();
+                    $("#mycolor3").hide();
+                    $("#mycolor4").show();
+                    $("#mycolor1label").hide();
+                    $("#mycolor2label").hide();
+                    $("#mycolor3label").hide();
+                    $("#mycolor4label").show();
+                }
+            });
+            
+            
+            
+            $("#mycolor1").on("change.color", function(event, color){
+                $('#color1').css('background-color', color);
+                $("#mycolor1").hide();
+                $("#mycolor1label").hide();
+            });
+            $("#mycolor2").on("change.color", function(event, color){
+                $('#color2').css('background-color', color);
+                $("#mycolor2").hide();
+                $("#mycolor2label").hide();
+            });
+            $("#mycolor3").on("change.color", function(event, color){
+                $('#color3').css('background-color', color);
+                $("#mycolor3").hide();
+                $("#mycolor3label").hide();
+            });
+            $("#mycolor4").on("change.color", function(event, color){
+                $('#color4').css('background-color', color);
+                $("#mycolor4").hide();
+                $("#mycolor4label").hide();
+            });
+            
+            
+            
+            $(document).ready(function() {
+                $("#mycolor1").colorpicker();
+                $("#mycolor1").hide();
+                $("#mycolor1label").hide();
+                $("#mycolor2label").hide();
+                $("#mycolor3label").hide();
+                $("#mycolor4label").hide();
+            });
+            $(document).ready(function() {
+                $("#mycolor2").colorpicker();
+                $("#mycolor2").hide();
+            });
+            $(document).ready(function() {
+                $("#mycolor3").colorpicker();
+                $("#mycolor3").hide();
+            });
+            $(document).ready(function() {
+                $("#mycolor4").colorpicker();
+                $("#mycolor4").hide();
+            });
+            
+            /*var colorPickerContent = '' +
+                '<div class="colorpicker-wrapper">' +
                 '   <input type="color" id="color1" name="color1" value="' + wpWordCloudSettings.fontColor1 + '"/>'+
                 '       <label class="colorpicker" for="color1">Farbe 1</label>' +
                 '</div>' +
@@ -60,9 +239,12 @@
                 '<div class="colorpicker-wrapper">' +
                 '   <input type="color" id="color4" name="color4" value="' + wpWordCloudSettings.fontColor4 + '"/>' +
                 '       <label class="colorpicker" for="color4">Farbe 4</label>' +
-                '</div>';
+                '</div>' +
+                '<div style="width:128px;">' +
+                '   <div style="width:100px;" id="mycolor" class="colorPicker evo-cp0" />' +
+                '</div>';*/
+
             
-            //$(this).find('#cloud-settings').append(colorPickerContent);
             
             //Add checkboxes for out of bound and shrink to fit
             var shrinkDraw = '' +
@@ -83,7 +265,7 @@
 
         	$(this).find('#cloud-settings').append('<input type="text" value="' + wpWordCloudSettings.sizeFactor + '" class="word-cloud-setting-size-factor" id="word-cloud-setting-size-factor-'+wpWordCloudSettings.id+'" name="word-cloud-setting-size-factor-'+wpWordCloudSettings.id+'" hiddenwp>');
             
-		    //$(this).find('#cloud-settings').append(shrinkDraw);
+		    $(this).find('#cloud-settings').append(shrinkDraw);
             
             //Change settings after checking/unchecking shrink-to-fit
             /*$('#shrink-to-fit').change(function() {
@@ -497,18 +679,22 @@
 			if (alpha < settings.minAlpha) {
 				alpha = settings.minAlpha;
 			}
-            
+
             //Using a random color for a new word. 
-            //var randNumber =  Math.floor(Math.random() * 4) + 1;
-            var randNumber =  Math.floor(Math.random() * 4);
+            var randNumber =  Math.floor(Math.random() * 4) + 1;
+            
+            var c = rgbToHex($("#color" + randNumber).css("background-color"));
+            
+            return "rgba(" + hexToRgb(c).r + ", " + hexToRgb(c).g + ", " + hexToRgb(c).b + ", " + alpha + ")";
+            
+            //var randNumber =  Math.floor(Math.random() * 4);
             
             //var c = $("#color" + randNumber).val();
             
-            var colors = [settings.fontColor1, settings.fontColor2, settings.fontColor3, settings.fontColor4];
-            var c =  colors[randNumber];
-			
-			return "rgba(" + hexToRgb(c).r + ", " + hexToRgb(c).g + ", " + hexToRgb(c).b + ", " + alpha + ")";
-
+            //var colors = [settings.fontColor1, settings.fontColor2, settings.fontColor3, settings.fontColor4];
+            //var c =  colors[randNumber];
+            
+			//return "rgba(" + hexToRgb(c).r + ", " + hexToRgb(c).g + ", " + hexToRgb(c).b + ", " + alpha + ")";
 		};
 
 		settings.weightFactor = function (size) {
@@ -552,6 +738,25 @@
         g: parseInt(result[2], 16),
         b: parseInt(result[3], 16)
       } : null;
+    }
+    
+    function componentFromStr(numStr, percent) {
+        var num = Math.max(0, parseInt(numStr, 10));
+        return percent ?
+            Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
+    }
+    
+    function rgbToHex(rgb) {
+        var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
+        var result, r, g, b, hex = "";
+        if ( (result = rgbRegex.exec(rgb)) ) {
+            r = componentFromStr(result[1], result[2]);
+            g = componentFromStr(result[3], result[4]);
+            b = componentFromStr(result[5], result[6]);
+
+            hex = "#" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
+        }
+        return hex;
     }
 
 

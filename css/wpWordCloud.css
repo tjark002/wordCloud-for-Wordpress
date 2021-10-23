@@ -494,10 +494,26 @@ canvas.word-cloud {
 }
 
 .colorpicker-wrapper {
-    display: inline-block;
-    width: 15%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.colorpicker-wrapper-inner {
+    width: auto;
+    height: auto;
+    margin: 30px;
+    justify-content: center;
 }
 
 .colorpicker {
-    display: block;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
 }
+
+#colorpickwidget {
+  display: flex;
+  justify-content: center;
+}
+
