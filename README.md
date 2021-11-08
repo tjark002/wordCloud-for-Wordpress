@@ -190,3 +190,7 @@ If your source shall come from the SQL-database your wordpress installation is r
 query="SELECT word, SUM(count) AS count FROM database.table GROUP BY word ORDER BY count DESC LIMIT 0,50"
 
 See a working demo - in German only - on https://www.nickyreinert.de/wordpress-plugin-um-eine-word-cloud-mit-beliebigen-woertern-darzustellen/
+
+# References
+
+For the colorpicker an adaption of the color picker from Olivier Giulieri is used. The used version is evol-colorpicker 3.4.3 and can be viewed under: http://evoluteur.github.io/colorpicker/.

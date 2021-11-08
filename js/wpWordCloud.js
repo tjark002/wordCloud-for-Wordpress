@@ -45,22 +45,23 @@
 
             //Adding colorpicker html
             var colorPickerContent = '' +
+                '<p>Welche Farben soll deine Wortwolke haben?</p>' +
                 '<div class="colorpicker-wrapper">' +
                 '   <div class="colorpicker-wrapper-inner">' +
                 '       <div id="color1" class="colorpicker" name="color1" style="background-color:' + wpWordCloudSettings.fontColor1 + '"></div>'+
-                '       <label for="color1">Farbe 1</label>' +
+                //'       <label for="color1">Farbe 1</label>' +
                 '   </div>' +
                 '   <div class="colorpicker-wrapper-inner">' +
                 '       <div id="color2" class="colorpicker" name="color2" style="background-color:' + wpWordCloudSettings.fontColor2 + '"></div>' +
-                '       <label class="colorpicker" for="color2">Farbe 2</label>' +
+                //'       <label class="colorpicker" for="color2">Farbe 2</label>' +
                 '   </div>' +
                 '   <div class="colorpicker-wrapper-inner">' +
                 '       <div id="color3" class="colorpicker" name="color3" style="background-color:' + wpWordCloudSettings.fontColor3 + '"></div>' +
-                '       <label class="colorpicker" for="color3">Farbe 3</label>' +
+                //'       <label class="colorpicker" for="color3">Farbe 3</label>' +
                 '   </div>' +
                 '   <div class="colorpicker-wrapper-inner">' +
                 '       <div id="color4" class="colorpicker" name="color4" style="background-color:' + wpWordCloudSettings.fontColor4 + '"></div>' +
-                '       <label class="colorpicker" for="color4">Farbe 4</label>' +
+                //'       <label class="colorpicker" for="color4">Farbe 4</label>' +
                 '   </div>' +
                 '</div>' +
                 '<div id="colorpickwidget">' +

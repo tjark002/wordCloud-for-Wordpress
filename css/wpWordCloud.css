@@ -502,7 +502,8 @@ canvas.word-cloud {
 .colorpicker-wrapper-inner {
     width: auto;
     height: auto;
-    margin: 30px;
+    margin: 2%;
+    margin-top: 0px;
     justify-content: center;
 }
 
