@@ -708,11 +708,12 @@
 		// an ignore list
 		settings.click = function (item, dimension, event) {
 
-			if ($("#word-cloud-activate-black-list-"+settings.id).is(":checked")) {
+            //Damit die Wortwolke bei Klick neu generiert
+			//if ($("#word-cloud-activate-black-list-"+settings.id).is(":checked")) {
 
 				addWordToBlackList(item, settings);
 
-			}
+			//}
 
 		};
 
